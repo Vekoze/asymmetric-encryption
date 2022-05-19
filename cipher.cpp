@@ -1,5 +1,6 @@
 #include "cipher.hpp"
 #include "rsa.hpp"
+#include "rsakey.hpp"
 
 bool is_prime(uint64_t n){
     if (n == 2 || n == 3)
@@ -69,11 +70,10 @@ int main(){
 
     rsa_key.summary();
 
-    string encrypt = rsa_encrypt("HeLLO", rsa_key.get_public_key());
+    vector<string> encrypt = rsa_encrypt("0_testRSA_9", rsa_key.get_public_key());
     string decrypt = rsa_decrypt(encrypt, rsa_key.get_private_key());
-
-    cout << "encrypt: " << encrypt << endl;
-    cout << "decrypt: " << decrypt << endl;
     
+    cout << "decrypt: " << decrypt << endl;
+
     return 0;
 }
