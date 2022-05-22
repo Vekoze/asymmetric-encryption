@@ -1,6 +1,7 @@
 #include "cipher.hpp"
 #include "rsa.hpp"
 #include "rsakey.hpp"
+#include "hash.hpp"
 
 bool is_prime(uint64_t n){
     if (n == 2 || n == 3)
@@ -74,6 +75,8 @@ int main(){
     string decrypt = rsa_decrypt(encrypt, rsa_key.get_private_key());
     
     cout << "decrypt: " << decrypt << endl;
+
+    cout << hash_file("test.txt") << endl;
 
     return 0;
 }
