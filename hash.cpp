@@ -7,10 +7,9 @@ string hash_file(string path){
 
     vector<int> file_xor(M,0);
 
-    for(;;){
+    for(;;)
         vector<uint8_t> buffer(N*M, 0);
         file.read((char*) &buffer[0], buffer.size());
-        streamsize readed = file.gcount();
 
         uint8_t block[M][N];
         for(int i = 0; i<M; i++){
